@@ -1,0 +1,31 @@
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.db
+
+# --- Secrets / local env ---
+.env
+.env.*
+!.env.example
+
+# --- Node / Next.js (frontend) ---
+frontend/node_modules/
+frontend/.next/
+frontend/npm-debug.log*
+
+# --- Editor / OS ---
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Personal reference documents (not part of the software project) ---
+/AI_Payroll_Validation_Agent_Requirements.docx
+/EIS employee and employer 151124-Rate Contribution ACT 800.pdf
+/EPF employee and employer contribution 10. Effective 1 October 2025.pdf
+/SOCSO employee and employer NewContributionRateIncludingSKBBK.pdf
+/MY Labour law and statutory calculation.txt
+/MY Labour law and statutory calculation.xlsx
+/gcm-diagnose.log
