@@ -12,7 +12,7 @@ for cloud deployment (Phase 3.4).
 
 ```powershell
 cd payverify-ai
-Copy-Item .env.example .env   # then edit .env if you want a real ANTHROPIC_API_KEY
+Copy-Item .env.example .env   # then edit .env if you want a real GEMINI_API_KEY
 docker compose up --build
 ```
 

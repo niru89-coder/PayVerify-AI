@@ -18,6 +18,17 @@ DB_PATH = pathlib.Path(__file__).resolve().parent.parent / "payverify.db"
 DEFAULT_SQLITE_URL = f"sqlite:///{DB_PATH}"
 DATABASE_URL = os.environ.get("DATABASE_URL", DEFAULT_SQLITE_URL)
 
+# Managed Postgres providers (Neon, Render Postgres, Heroku-style URLs, etc.)
+# hand out plain "postgres://" or "postgresql://" connection strings, which
+# SQLAlchemy resolves to the psycopg2 dialect - not installed here (we use
+# psycopg 3 instead, see requirements.txt). Rewrite the scheme so the
+# psycopg3 dialect is used without requiring every deploy target to know
+# about this project's driver choice.
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL[len("postgres://"):]
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL[len("postgresql://"):]
+
 _connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 engine = create_engine(DATABASE_URL, connect_args=_connect_args)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

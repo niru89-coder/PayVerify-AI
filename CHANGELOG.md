@@ -15,10 +15,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `DATABASE_URL` env-var support in the backend (PostgreSQL in Docker, SQLite for local dev).
 - `CORS_ALLOWED_ORIGINS` env-var support (configurable allowed origins).
 - Minimal `GET /health` liveness endpoint.
+- Phase 3.3: CI/CD — GitHub Actions workflows for pull-request checks, build/push/deploy on
+  push to `main`, and a manual rollback workflow.
+- Phase 3.4: Render deployment — `render.yaml` Blueprint (Docker web services for
+  backend/frontend) and `docs/deployment/render-deployment.md`, wiring external Neon
+  PostgreSQL and Upstash Redis via secret env vars.
+
+### Changed
+- Replaced the optional Claude (Anthropic) AI explanation provider with
+  `GeminiExplanationProvider` (Google Gemini). The env var is now `GEMINI_API_KEY` instead of
+  `ANTHROPIC_API_KEY`; behavior is unchanged — AI explanations remain a narrate-only
+  enrichment, with the deterministic `StubExplanationProvider` still the default fallback
+  when no key is configured.
 
 ### Fixed
 - Nginx `client_max_body_size` raised to 20m to allow larger Client/Platform register CSV
   uploads through the Docker Compose reverse-proxy entrypoint.
+- `DATABASE_URL` values using the plain `postgres://`/`postgresql://` scheme (as issued by
+  Neon and similar managed providers) are now rewritten to `postgresql+psycopg://` so they
+  resolve to the installed psycopg 3 driver instead of the unavailable psycopg2 dialect.
 
 ## [0.1.0] - 2026-07-25
 

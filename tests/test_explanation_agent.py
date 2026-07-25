@@ -18,6 +18,6 @@ def test_stub_provider_produces_deterministic_text():
 
 
 def test_default_provider_is_stub_without_api_key(monkeypatch):
-    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     provider = get_default_provider()
     assert isinstance(provider, StubExplanationProvider)

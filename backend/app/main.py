@@ -72,7 +72,7 @@ app.add_middleware(
 def health():
     """Lightweight liveness check - no dependency calls. Used by Docker/Render health checks.
 
-    A readiness endpoint that also verifies DB/Redis/Anthropic connectivity (/status) and a
+    A readiness endpoint that also verifies DB/Redis/Gemini connectivity (/status) and a
     Prometheus-style /metrics endpoint are added in the Phase 3.6 monitoring work.
     """
     return {"status": "ok"}

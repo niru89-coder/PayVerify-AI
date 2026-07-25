@@ -66,21 +66,22 @@ class StubExplanationProvider(ExplanationProvider):
         return " ".join(parts)
 
 
-class ClaudeExplanationProvider(ExplanationProvider):
-    """Uses Anthropic Claude Sonnet 4.5 to phrase the explanation. Inactive
-    unless ANTHROPIC_API_KEY is set; the prompt sent to the model contains
-    ONLY the structured fields above - the model is explicitly instructed not
-    to recompute or contradict the deterministic classification."""
+class GeminiExplanationProvider(ExplanationProvider):
+    """Uses Google Gemini to phrase the explanation. Inactive unless
+    GEMINI_API_KEY is set; the prompt sent to the model contains ONLY the
+    structured fields above - the model is explicitly instructed not to
+    recompute or contradict the deterministic classification."""
 
-    MODEL = "claude-sonnet-4-5"
+    MODEL = "gemini-2.0-flash"
 
     def __init__(self, api_key: str | None = None) -> None:
-        self._api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
+        self._api_key = api_key or os.environ.get("GEMINI_API_KEY")
         if not self._api_key:
-            raise RuntimeError("ANTHROPIC_API_KEY not set; use StubExplanationProvider instead.")
-        import anthropic  # imported lazily so the stub path has no hard dependency at runtime
+            raise RuntimeError("GEMINI_API_KEY not set; use StubExplanationProvider instead.")
+        import google.generativeai as genai  # imported lazily so the stub path has no hard dependency at runtime
 
-        self._client = anthropic.Anthropic(api_key=self._api_key)
+        genai.configure(api_key=self._api_key)
+        self._client = genai.GenerativeModel(self.MODEL)
 
     def explain(self, request: VarianceExplanationRequest) -> str:
         prompt = (
@@ -100,19 +101,18 @@ class ClaudeExplanationProvider(ExplanationProvider):
             f"Recommended action: {request.recommended_action}\n"
             f"Confidence score: {request.confidence_score}\n"
         )
-        message = self._client.messages.create(
-            model=self.MODEL,
-            max_tokens=300,
-            messages=[{"role": "user", "content": prompt}],
+        response = self._client.generate_content(
+            prompt,
+            generation_config={"max_output_tokens": 300},
         )
-        return message.content[0].text
+        return response.text
 
 
 def get_default_provider() -> ExplanationProvider:
-    """Factory: uses Claude if ANTHROPIC_API_KEY is configured, else the stub."""
-    if os.environ.get("ANTHROPIC_API_KEY"):
+    """Factory: uses Gemini if GEMINI_API_KEY is configured, else the stub."""
+    if os.environ.get("GEMINI_API_KEY"):
         try:
-            return ClaudeExplanationProvider()
+            return GeminiExplanationProvider()
         except Exception:
             return StubExplanationProvider()
     return StubExplanationProvider()

@@ -36,11 +36,11 @@ within 14 days of confirming the issue.
   (PII) such as national ID numbers, salaries, and bank details in uploaded CSVs. Any
   vulnerability that could expose this data (e.g. path traversal in the upload handlers,
   SQL injection, missing authentication/authorization on data-access endpoints, SSRF via the
-  Claude API integration) is considered **high severity**.
+  Gemini API integration) is considered **high severity**.
 - The current MVP has **no authentication/authorization layer** — this is a known,
   intentionally scoped limitation (see README "Known limitations"), not something you need to
   separately report, but please do not deploy a build without auth in front of real employee
   payroll data.
-- Claude (Anthropic) API usage is scoped to variance-explanation text only; the AI Gateway
-  (Phase 3.5) enforces that raw payroll registers/PII are never sent to the Claude API. A
+- Gemini (Google) API usage is scoped to variance-explanation text only; the AI Gateway
+  (Phase 3.5) enforces that raw payroll registers/PII are never sent to the Gemini API. A
   vulnerability that bypasses that data-minimization boundary is high severity.
