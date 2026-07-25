@@ -18,7 +18,7 @@ Instead, report privately via one of:
 
 - GitHub's [private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)
   feature on this repository (Security tab → "Report a vulnerability"), or
-- Email the maintainer directly at: `security@REPLACE-WITH-REAL-DOMAIN.example` (update this
+- Email the maintainer directly at: `niru.rajavel@gmail.com` (update this
   before the repo goes public).
 
 Please include:

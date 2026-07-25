@@ -1,0 +1,51 @@
+name: Rollback
+
+# Manual rollback of a Render service to a previous deploy, without needing
+# server/dashboard access. Satisfies Phase 3.3's rollback requirement.
+#
+# Required secret: RENDER_API_KEY (a Render personal/team API key - configure
+# in Phase 3.4 once the Render services exist).
+#
+# Usage: Actions tab -> Rollback -> Run workflow -> fill in the service ID
+# (and optionally a specific deploy ID; leave blank to roll back to the
+# previous successful deploy).
+
+on:
+  workflow_dispatch:
+    inputs:
+      render_service_id:
+        description: "Render service ID to roll back (srv-...)"
+        required: true
+      deploy_id:
+        description: "Render deploy ID to roll back to (dep-...). Leave blank for the previous successful deploy."
+        required: false
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Roll back via Render API
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ github.event.inputs.render_service_id }}
+          DEPLOY_ID: ${{ github.event.inputs.deploy_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${RENDER_API_KEY:-}" ]; then
+            echo "::error::RENDER_API_KEY secret not set - cannot call the Render API."
+            exit 1
+          fi
+
+          if [ -z "$DEPLOY_ID" ]; then
+            echo "No deploy_id given - looking up the previous successful deploy..."
+            DEPLOY_ID=$(curl -fsS -H "Authorization: Bearer $RENDER_API_KEY" \
+              "https://api.render.com/v1/services/$SERVICE_ID/deploys?status=live&limit=2" \
+              | python3 -c "import sys, json; deploys = json.load(sys.stdin); print(deploys[1]['deploy']['id'])")
+          fi
+
+          echo "Rolling back service $SERVICE_ID to deploy $DEPLOY_ID"
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Content-Type: application/json" \
+            "https://api.render.com/v1/services/$SERVICE_ID/rollback" \
+            -d "{\"deployId\": \"$DEPLOY_ID\"}"

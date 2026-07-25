@@ -1,14 +1,14 @@
 # Default owner for everything not matched below.
-# Replace @OWNER with the actual GitHub username/team before relying on this.
-*                           @OWNER
+# Replace niru89-coder with the actual GitHub username/team before relying on this.
+*                           niru89-coder
 
 # Statutory rule engine changes need extra scrutiny (correctness-critical).
-/rule-engine/               @OWNER
-/validation-engine/         @OWNER
-/rules/                     @OWNER
-/knowledge-base/             @OWNER
+/rule-engine/               niru89-coder
+/validation-engine/         niru89-coder
+/rules/                     niru89-coder
+/knowledge-base/             niru89-coder
 
 # Deployment/infra changes.
-/docker/                    @OWNER
-/docker-compose.yml         @OWNER
-/.github/workflows/          @OWNER
+/docker/                    niru89-coder
+/docker-compose.yml         niru89-coder
+/.github/workflows/          niru89-coder
