@@ -1,0 +1,29 @@
+RuleId: MY_PCB_001
+Country: Malaysia
+Component: PCB
+BusinessArea: Statutory Monthly Tax Deduction (MTD)
+Category: Statutory
+Priority: Critical
+SourceDocument: NO SOURCE DOCUMENT SUPPLIED
+Section: N/A
+EffectiveDate: Requires SME Validation
+Version: 0.0-placeholder
+ValidationType: Not implemented
+Inputs: []
+Expected:
+- EmployeeDeduction
+Dependencies: []
+ExecutionOrder: 50
+ErrorCode: PCB001
+Severity: Critical
+Owner: Payroll Compliance SME (Malaysia)
+SME: Requires SME Validation - full PCB/MTD schedule needed from LHDN
+AuditReference: N/A
+TestScenario:
+  Positive: N/A
+  Negative: Any input -> PENDING_SME_VALIDATION
+Risk: Critical
+Confidence: None
+Status: pending_sme_validation
+Notes: Referenced by the BRD (Section 21.1) as an in-scope component, but no PCB source
+  document exists in the workspace.

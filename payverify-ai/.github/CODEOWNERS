@@ -1,0 +1,14 @@
+# Default owner for everything not matched below.
+# Replace @OWNER with the actual GitHub username/team before relying on this.
+*                           @OWNER
+
+# Statutory rule engine changes need extra scrutiny (correctness-critical).
+/rule-engine/               @OWNER
+/validation-engine/         @OWNER
+/rules/                     @OWNER
+/knowledge-base/             @OWNER
+
+# Deployment/infra changes.
+/docker/                    @OWNER
+/docker-compose.yml         @OWNER
+/.github/workflows/          @OWNER

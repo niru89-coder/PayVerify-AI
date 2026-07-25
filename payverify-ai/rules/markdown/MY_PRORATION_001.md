@@ -1,0 +1,27 @@
+# MY_PRORATION_001 - Proration
+
+**Country:** Malaysia
+**BusinessArea:** Fixed Income Proration
+**Category:** Business Rule
+**Priority:** High
+**SourceDocument:** MY Labour law and statutory calculation.txt
+**Section:** Fixed Income proration statement
+**EffectiveDate:** Requires SME Validation
+**Version:** 1.0
+**ValidationType:** Formula (calendar-day ratio)
+**Inputs:** MonthlyAmount, Year, Month, EligibleDays
+**Expected:** ProratedAmount
+**Dependencies:** _(none)_
+**ExecutionOrder:** 5
+**ErrorCode:** PRORATION001
+**Severity:** High
+**Owner:** Payroll Compliance SME (Malaysia)
+**SME:** Requires SME Validation
+**AuditReference:** docs/markdown/my-labour-law-and-statutory-calculation-txt.md
+**TestScenario:**
+- Positive: RM3000 monthly, 15/30 eligible calendar days -> RM1500
+- Negative: eligible_days > total_days in month -> ERROR
+**Risk:** Medium
+**Confidence:** High (standard calendar-day proration explicitly stated)
+**Status:** implemented
+**Notes:** Applies to new joiners, exits, and unpaid leave during the month for fixed income components (Basic, Transport allowance, etc.).

@@ -1,0 +1,36 @@
+{
+  "RuleId": "MY_EIS_001",
+  "Country": "Malaysia",
+  "Component": "EIS",
+  "BusinessArea": "Statutory Employment Insurance Contribution",
+  "Category": "Statutory",
+  "Priority": "Critical",
+  "SourceDocument": "EIS employee and employer 151124-Rate Contribution ACT 800.PDF",
+  "Section": "Unknown - source is a scanned image, not machine-readable",
+  "EffectiveDate": "Requires SME Validation",
+  "Version": "0.0-placeholder",
+  "ValidationType": "Lookup table (not yet available)",
+  "Inputs": [
+    "BasicSalary",
+    "FixedAllowance"
+  ],
+  "Expected": [
+    "EmployerContribution",
+    "EmployeeContribution"
+  ],
+  "Dependencies": [],
+  "ExecutionOrder": 30,
+  "ErrorCode": "EIS001",
+  "Severity": "Critical",
+  "Owner": "Payroll Compliance SME (Malaysia)",
+  "SME": "Requires SME Validation - full rate table transcription required",
+  "AuditReference": "docs/markdown/assets/eis-employee-and-employer-151124-rate-contribution-act-800-page1.png",
+  "TestScenario": {
+    "Positive": "N/A until rate table is transcribed",
+    "Negative": "Any input -> PENDING_SME_VALIDATION (no computation performed)"
+  },
+  "Risk": "Critical - EIS validation cannot run at all until this placeholder is resolved",
+  "Confidence": "None - no rate figures available",
+  "Status": "pending_sme_validation",
+  "Notes": "Source PDF is scanned/image-only; pdfplumber text and table extraction both returned empty content."
+}

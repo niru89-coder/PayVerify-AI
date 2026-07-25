@@ -1,0 +1,37 @@
+{
+  "RuleId": "MY_OT_001",
+  "Country": "Malaysia",
+  "Component": "Overtime",
+  "BusinessArea": "Working Time / Overtime Pay",
+  "Category": "Business Rule",
+  "Priority": "High",
+  "SourceDocument": "MY Labour law and statutory calculation.txt",
+  "Section": "Overtime calculation",
+  "EffectiveDate": "Requires SME Validation",
+  "Version": "1.0",
+  "ValidationType": "Formula (multiplier table)",
+  "Inputs": [
+    "MonthlyBasicWages",
+    "OtHours",
+    "DayType",
+    "DailyNormalHours"
+  ],
+  "Expected": [
+    "OvertimePay"
+  ],
+  "Dependencies": [],
+  "ExecutionOrder": 60,
+  "ErrorCode": "OT001",
+  "Severity": "High",
+  "Owner": "Payroll Compliance SME (Malaysia)",
+  "SME": "Requires SME Validation - rest-day standard-hours sub-case multiplier not specified in source",
+  "AuditReference": "docs/markdown/my-labour-law-and-statutory-calculation-txt.md",
+  "TestScenario": {
+    "Positive": "Monthly basic RM2080, 2h normal-day OT -> HRP x 1.5 x 2",
+    "Negative": "Rest day, standard hours worked (no OT) -> PENDING_SME_VALIDATION (multiplier not specified)"
+  },
+  "Risk": "Medium",
+  "Confidence": "High for normal/rest(exceeding)/public holiday cases; Low for rest-day standard-hours sub-case",
+  "Status": "implemented_partial",
+  "Notes": "HRP = Monthly Basic Wages / 26 / daily normal hours (usually 8)."
+}

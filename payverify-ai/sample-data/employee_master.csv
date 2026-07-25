@@ -1,0 +1,11 @@
+id,name,dob,age,nationality,is_pr,elected_pre_1998,doj,doe,unpaid_leave_days,employment_type,is_director_fee_only,employer_hrdf_registered
+E001,Ahmad bin Ismail,1996-03-15,30,MY,N,N,2020-01-06,,0,permanent,N,Y
+E002,Tan Wei Ling,1965-04-01,61,MY,N,N,2015-06-01,,0,permanent,N,Y
+E003,Budi Santoso,1961-02-20,65,ID,Y,N,2018-03-01,,0,permanent,N,Y
+E004,Maria Santos,1986-07-10,40,PH,N,N,2021-09-01,,0,permanent,N,Y
+E005,Nur Aisyah,2013-01-01,13,MY,N,N,2026-01-01,,0,permanent,N,Y
+E006,Lim Ah Kow,1950-01-01,76,MY,N,N,2000-01-01,,0,permanent,N,Y
+E007,Siti Rahman,1991-05-01,35,MY,N,N,2019-01-01,,0,permanent,N,Y
+E008,Krishnan Muthu,1981-08-01,45,MY,N,N,2010-01-01,,0,permanent,N,Y
+E009,Farah Diyana,1998-01-01,28,MY,N,N,2022-02-01,,0,permanent,N,Y
+E010,Chong Mei Fen,1995-11-11,30,MY,N,N,2021-01-01,,0,permanent,N,Y

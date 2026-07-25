@@ -1,0 +1,1177 @@
+{
+  "source": "SOCSO employee and employer NewContributionRateIncludingSKBBK.pdf",
+  "effective_note": "As printed in source PDF; effective date not stated in document - Requires SME Validation for effective date confirmation.",
+  "wage_ceiling": 6000.0,
+  "rows": [
+    {
+      "row": 1,
+      "wage_min_exclusive": 0.0,
+      "wage_max_inclusive": 30.0,
+      "category_1": {
+        "employee": 0.4,
+        "employer_invalidity": 0.1,
+        "employer_non_employment_injury": 0.2,
+        "employer_total": 0.3,
+        "total": 0.7
+      },
+      "category_2": {
+        "employee": 0.3,
+        "employer_non_employment_injury": 0.2,
+        "employer_total": 0.2,
+        "total": 0.5
+      }
+    },
+    {
+      "row": 2,
+      "wage_min_exclusive": 30.0,
+      "wage_max_inclusive": 50.0,
+      "category_1": {
+        "employee": 0.7,
+        "employer_invalidity": 0.2,
+        "employer_non_employment_injury": 0.3,
+        "employer_total": 0.5,
+        "total": 1.2
+      },
+      "category_2": {
+        "employee": 0.5,
+        "employer_non_employment_injury": 0.3,
+        "employer_total": 0.3,
+        "total": 0.8
+      }
+    },
+    {
+      "row": 3,
+      "wage_min_exclusive": 50.0,
+      "wage_max_inclusive": 70.0,
+      "category_1": {
+        "employee": 1.1,
+        "employer_invalidity": 0.3,
+        "employer_non_employment_injury": 0.5,
+        "employer_total": 0.8,
+        "total": 1.9
+      },
+      "category_2": {
+        "employee": 0.8,
+        "employer_non_employment_injury": 0.5,
+        "employer_total": 0.5,
+        "total": 1.3
+      }
+    },
+    {
+      "row": 4,
+      "wage_min_exclusive": 70.0,
+      "wage_max_inclusive": 100.0,
+      "category_1": {
+        "employee": 1.5,
+        "employer_invalidity": 0.4,
+        "employer_non_employment_injury": 0.65,
+        "employer_total": 1.05,
+        "total": 2.55
+      },
+      "category_2": {
+        "employee": 1.1,
+        "employer_non_employment_injury": 0.65,
+        "employer_total": 0.65,
+        "total": 1.75
+      }
+    },
+    {
+      "row": 5,
+      "wage_min_exclusive": 100.0,
+      "wage_max_inclusive": 140.0,
+      "category_1": {
+        "employee": 2.1,
+        "employer_invalidity": 0.6,
+        "employer_non_employment_injury": 0.9,
+        "employer_total": 1.5,
+        "total": 3.6
+      },
+      "category_2": {
+        "employee": 1.5,
+        "employer_non_employment_injury": 0.9,
+        "employer_total": 0.9,
+        "total": 2.4
+      }
+    },
+    {
+      "row": 6,
+      "wage_min_exclusive": 140.0,
+      "wage_max_inclusive": 200.0,
+      "category_1": {
+        "employee": 2.95,
+        "employer_invalidity": 0.85,
+        "employer_non_employment_injury": 1.25,
+        "employer_total": 2.1,
+        "total": 5.05
+      },
+      "category_2": {
+        "employee": 2.1,
+        "employer_non_employment_injury": 1.25,
+        "employer_total": 1.25,
+        "total": 3.35
+      }
+    },
+    {
+      "row": 7,
+      "wage_min_exclusive": 200.0,
+      "wage_max_inclusive": 300.0,
+      "category_1": {
+        "employee": 4.35,
+        "employer_invalidity": 1.25,
+        "employer_non_employment_injury": 1.85,
+        "employer_total": 3.1,
+        "total": 7.45
+      },
+      "category_2": {
+        "employee": 3.1,
+        "employer_non_employment_injury": 1.85,
+        "employer_total": 1.85,
+        "total": 4.95
+      }
+    },
+    {
+      "row": 8,
+      "wage_min_exclusive": 300.0,
+      "wage_max_inclusive": 400.0,
+      "category_1": {
+        "employee": 6.15,
+        "employer_invalidity": 1.75,
+        "employer_non_employment_injury": 2.65,
+        "employer_total": 4.4,
+        "total": 10.55
+      },
+      "category_2": {
+        "employee": 4.4,
+        "employer_non_employment_injury": 2.65,
+        "employer_total": 2.65,
+        "total": 7.05
+      }
+    },
+    {
+      "row": 9,
+      "wage_min_exclusive": 400.0,
+      "wage_max_inclusive": 500.0,
+      "category_1": {
+        "employee": 7.85,
+        "employer_invalidity": 2.25,
+        "employer_non_employment_injury": 3.35,
+        "employer_total": 5.6,
+        "total": 13.45
+      },
+      "category_2": {
+        "employee": 5.6,
+        "employer_non_employment_injury": 3.35,
+        "employer_total": 3.35,
+        "total": 8.95
+      }
+    },
+    {
+      "row": 10,
+      "wage_min_exclusive": 500.0,
+      "wage_max_inclusive": 600.0,
+      "category_1": {
+        "employee": 9.65,
+        "employer_invalidity": 2.75,
+        "employer_non_employment_injury": 4.15,
+        "employer_total": 6.9,
+        "total": 16.55
+      },
+      "category_2": {
+        "employee": 6.9,
+        "employer_non_employment_injury": 4.15,
+        "employer_total": 4.15,
+        "total": 11.05
+      }
+    },
+    {
+      "row": 11,
+      "wage_min_exclusive": 600.0,
+      "wage_max_inclusive": 700.0,
+      "category_1": {
+        "employee": 11.35,
+        "employer_invalidity": 3.25,
+        "employer_non_employment_injury": 4.85,
+        "employer_total": 8.1,
+        "total": 19.45
+      },
+      "category_2": {
+        "employee": 8.1,
+        "employer_non_employment_injury": 4.85,
+        "employer_total": 4.85,
+        "total": 12.95
+      }
+    },
+    {
+      "row": 12,
+      "wage_min_exclusive": 700.0,
+      "wage_max_inclusive": 800.0,
+      "category_1": {
+        "employee": 13.15,
+        "employer_invalidity": 3.75,
+        "employer_non_employment_injury": 5.65,
+        "employer_total": 9.4,
+        "total": 22.55
+      },
+      "category_2": {
+        "employee": 9.4,
+        "employer_non_employment_injury": 5.65,
+        "employer_total": 5.65,
+        "total": 15.05
+      }
+    },
+    {
+      "row": 13,
+      "wage_min_exclusive": 800.0,
+      "wage_max_inclusive": 900.0,
+      "category_1": {
+        "employee": 14.85,
+        "employer_invalidity": 4.25,
+        "employer_non_employment_injury": 6.35,
+        "employer_total": 10.6,
+        "total": 25.45
+      },
+      "category_2": {
+        "employee": 10.6,
+        "employer_non_employment_injury": 6.35,
+        "employer_total": 6.35,
+        "total": 16.95
+      }
+    },
+    {
+      "row": 14,
+      "wage_min_exclusive": 900.0,
+      "wage_max_inclusive": 1000.0,
+      "category_1": {
+        "employee": 16.65,
+        "employer_invalidity": 4.75,
+        "employer_non_employment_injury": 7.15,
+        "employer_total": 11.9,
+        "total": 28.55
+      },
+      "category_2": {
+        "employee": 11.9,
+        "employer_non_employment_injury": 7.15,
+        "employer_total": 7.15,
+        "total": 19.05
+      }
+    },
+    {
+      "row": 15,
+      "wage_min_exclusive": 1000.0,
+      "wage_max_inclusive": 1100.0,
+      "category_1": {
+        "employee": 18.35,
+        "employer_invalidity": 5.25,
+        "employer_non_employment_injury": 7.85,
+        "employer_total": 13.1,
+        "total": 31.45
+      },
+      "category_2": {
+        "employee": 13.1,
+        "employer_non_employment_injury": 7.85,
+        "employer_total": 7.85,
+        "total": 20.95
+      }
+    },
+    {
+      "row": 16,
+      "wage_min_exclusive": 1100.0,
+      "wage_max_inclusive": 1200.0,
+      "category_1": {
+        "employee": 20.15,
+        "employer_invalidity": 5.75,
+        "employer_non_employment_injury": 8.65,
+        "employer_total": 14.4,
+        "total": 34.55
+      },
+      "category_2": {
+        "employee": 14.4,
+        "employer_non_employment_injury": 8.65,
+        "employer_total": 8.65,
+        "total": 23.05
+      }
+    },
+    {
+      "row": 17,
+      "wage_min_exclusive": 1200.0,
+      "wage_max_inclusive": 1300.0,
+      "category_1": {
+        "employee": 21.85,
+        "employer_invalidity": 6.25,
+        "employer_non_employment_injury": 9.35,
+        "employer_total": 15.6,
+        "total": 37.45
+      },
+      "category_2": {
+        "employee": 15.6,
+        "employer_non_employment_injury": 9.35,
+        "employer_total": 9.35,
+        "total": 24.95
+      }
+    },
+    {
+      "row": 18,
+      "wage_min_exclusive": 1300.0,
+      "wage_max_inclusive": 1400.0,
+      "category_1": {
+        "employee": 23.65,
+        "employer_invalidity": 6.75,
+        "employer_non_employment_injury": 10.15,
+        "employer_total": 16.9,
+        "total": 40.55
+      },
+      "category_2": {
+        "employee": 16.9,
+        "employer_non_employment_injury": 10.15,
+        "employer_total": 10.15,
+        "total": 27.05
+      }
+    },
+    {
+      "row": 19,
+      "wage_min_exclusive": 1400.0,
+      "wage_max_inclusive": 1500.0,
+      "category_1": {
+        "employee": 25.35,
+        "employer_invalidity": 7.25,
+        "employer_non_employment_injury": 10.85,
+        "employer_total": 18.1,
+        "total": 43.45
+      },
+      "category_2": {
+        "employee": 18.1,
+        "employer_non_employment_injury": 10.85,
+        "employer_total": 10.85,
+        "total": 28.95
+      }
+    },
+    {
+      "row": 20,
+      "wage_min_exclusive": 1500.0,
+      "wage_max_inclusive": 1600.0,
+      "category_1": {
+        "employee": 27.15,
+        "employer_invalidity": 7.75,
+        "employer_non_employment_injury": 11.65,
+        "employer_total": 19.4,
+        "total": 46.55
+      },
+      "category_2": {
+        "employee": 19.4,
+        "employer_non_employment_injury": 11.65,
+        "employer_total": 11.65,
+        "total": 31.05
+      }
+    },
+    {
+      "row": 21,
+      "wage_min_exclusive": 1600.0,
+      "wage_max_inclusive": 1700.0,
+      "category_1": {
+        "employee": 28.85,
+        "employer_invalidity": 8.25,
+        "employer_non_employment_injury": 12.35,
+        "employer_total": 20.6,
+        "total": 49.45
+      },
+      "category_2": {
+        "employee": 20.6,
+        "employer_non_employment_injury": 12.35,
+        "employer_total": 12.35,
+        "total": 32.95
+      }
+    },
+    {
+      "row": 22,
+      "wage_min_exclusive": 1700.0,
+      "wage_max_inclusive": 1800.0,
+      "category_1": {
+        "employee": 30.65,
+        "employer_invalidity": 8.75,
+        "employer_non_employment_injury": 13.15,
+        "employer_total": 21.9,
+        "total": 52.55
+      },
+      "category_2": {
+        "employee": 21.9,
+        "employer_non_employment_injury": 13.15,
+        "employer_total": 13.15,
+        "total": 35.05
+      }
+    },
+    {
+      "row": 23,
+      "wage_min_exclusive": 1800.0,
+      "wage_max_inclusive": 1900.0,
+      "category_1": {
+        "employee": 32.35,
+        "employer_invalidity": 9.25,
+        "employer_non_employment_injury": 13.85,
+        "employer_total": 23.1,
+        "total": 55.45
+      },
+      "category_2": {
+        "employee": 23.1,
+        "employer_non_employment_injury": 13.85,
+        "employer_total": 13.85,
+        "total": 36.95
+      }
+    },
+    {
+      "row": 24,
+      "wage_min_exclusive": 1900.0,
+      "wage_max_inclusive": 2000.0,
+      "category_1": {
+        "employee": 34.15,
+        "employer_invalidity": 9.75,
+        "employer_non_employment_injury": 14.65,
+        "employer_total": 24.4,
+        "total": 58.55
+      },
+      "category_2": {
+        "employee": 24.4,
+        "employer_non_employment_injury": 14.65,
+        "employer_total": 14.65,
+        "total": 39.05
+      }
+    },
+    {
+      "row": 25,
+      "wage_min_exclusive": 2000.0,
+      "wage_max_inclusive": 2100.0,
+      "category_1": {
+        "employee": 35.85,
+        "employer_invalidity": 10.25,
+        "employer_non_employment_injury": 15.35,
+        "employer_total": 25.6,
+        "total": 61.45
+      },
+      "category_2": {
+        "employee": 25.6,
+        "employer_non_employment_injury": 15.35,
+        "employer_total": 15.35,
+        "total": 40.95
+      }
+    },
+    {
+      "row": 26,
+      "wage_min_exclusive": 2100.0,
+      "wage_max_inclusive": 2200.0,
+      "category_1": {
+        "employee": 37.65,
+        "employer_invalidity": 10.75,
+        "employer_non_employment_injury": 16.15,
+        "employer_total": 26.9,
+        "total": 64.55
+      },
+      "category_2": {
+        "employee": 26.9,
+        "employer_non_employment_injury": 16.15,
+        "employer_total": 16.15,
+        "total": 43.05
+      }
+    },
+    {
+      "row": 27,
+      "wage_min_exclusive": 2200.0,
+      "wage_max_inclusive": 2300.0,
+      "category_1": {
+        "employee": 39.35,
+        "employer_invalidity": 11.25,
+        "employer_non_employment_injury": 16.85,
+        "employer_total": 28.1,
+        "total": 67.45
+      },
+      "category_2": {
+        "employee": 28.1,
+        "employer_non_employment_injury": 16.85,
+        "employer_total": 16.85,
+        "total": 44.95
+      }
+    },
+    {
+      "row": 28,
+      "wage_min_exclusive": 2300.0,
+      "wage_max_inclusive": 2400.0,
+      "category_1": {
+        "employee": 41.15,
+        "employer_invalidity": 11.75,
+        "employer_non_employment_injury": 17.65,
+        "employer_total": 29.4,
+        "total": 70.55
+      },
+      "category_2": {
+        "employee": 29.4,
+        "employer_non_employment_injury": 17.65,
+        "employer_total": 17.65,
+        "total": 47.05
+      }
+    },
+    {
+      "row": 29,
+      "wage_min_exclusive": 2400.0,
+      "wage_max_inclusive": 2500.0,
+      "category_1": {
+        "employee": 42.85,
+        "employer_invalidity": 12.25,
+        "employer_non_employment_injury": 18.35,
+        "employer_total": 30.6,
+        "total": 73.45
+      },
+      "category_2": {
+        "employee": 30.6,
+        "employer_non_employment_injury": 18.35,
+        "employer_total": 18.35,
+        "total": 48.95
+      }
+    },
+    {
+      "row": 30,
+      "wage_min_exclusive": 2500.0,
+      "wage_max_inclusive": 2600.0,
+      "category_1": {
+        "employee": 44.65,
+        "employer_invalidity": 12.75,
+        "employer_non_employment_injury": 19.15,
+        "employer_total": 31.9,
+        "total": 76.55
+      },
+      "category_2": {
+        "employee": 31.9,
+        "employer_non_employment_injury": 19.15,
+        "employer_total": 19.15,
+        "total": 51.05
+      }
+    },
+    {
+      "row": 31,
+      "wage_min_exclusive": 2600.0,
+      "wage_max_inclusive": 2700.0,
+      "category_1": {
+        "employee": 46.35,
+        "employer_invalidity": 13.25,
+        "employer_non_employment_injury": 19.85,
+        "employer_total": 33.1,
+        "total": 79.45
+      },
+      "category_2": {
+        "employee": 33.1,
+        "employer_non_employment_injury": 19.85,
+        "employer_total": 19.85,
+        "total": 52.95
+      }
+    },
+    {
+      "row": 32,
+      "wage_min_exclusive": 2700.0,
+      "wage_max_inclusive": 2800.0,
+      "category_1": {
+        "employee": 48.15,
+        "employer_invalidity": 13.75,
+        "employer_non_employment_injury": 20.65,
+        "employer_total": 34.4,
+        "total": 82.55
+      },
+      "category_2": {
+        "employee": 34.4,
+        "employer_non_employment_injury": 20.65,
+        "employer_total": 20.65,
+        "total": 55.05
+      }
+    },
+    {
+      "row": 33,
+      "wage_min_exclusive": 2800.0,
+      "wage_max_inclusive": 2900.0,
+      "category_1": {
+        "employee": 49.85,
+        "employer_invalidity": 14.25,
+        "employer_non_employment_injury": 21.35,
+        "employer_total": 35.6,
+        "total": 85.45
+      },
+      "category_2": {
+        "employee": 35.6,
+        "employer_non_employment_injury": 21.35,
+        "employer_total": 21.35,
+        "total": 56.95
+      }
+    },
+    {
+      "row": 34,
+      "wage_min_exclusive": 2900.0,
+      "wage_max_inclusive": 3000.0,
+      "category_1": {
+        "employee": 51.65,
+        "employer_invalidity": 14.75,
+        "employer_non_employment_injury": 22.15,
+        "employer_total": 36.9,
+        "total": 88.55
+      },
+      "category_2": {
+        "employee": 36.9,
+        "employer_non_employment_injury": 22.15,
+        "employer_total": 22.15,
+        "total": 59.05
+      }
+    },
+    {
+      "row": 35,
+      "wage_min_exclusive": 3000.0,
+      "wage_max_inclusive": 3100.0,
+      "category_1": {
+        "employee": 53.35,
+        "employer_invalidity": 15.25,
+        "employer_non_employment_injury": 22.85,
+        "employer_total": 38.1,
+        "total": 91.45
+      },
+      "category_2": {
+        "employee": 38.1,
+        "employer_non_employment_injury": 22.85,
+        "employer_total": 22.85,
+        "total": 60.95
+      }
+    },
+    {
+      "row": 36,
+      "wage_min_exclusive": 3100.0,
+      "wage_max_inclusive": 3200.0,
+      "category_1": {
+        "employee": 55.15,
+        "employer_invalidity": 15.75,
+        "employer_non_employment_injury": 23.65,
+        "employer_total": 39.4,
+        "total": 94.55
+      },
+      "category_2": {
+        "employee": 39.4,
+        "employer_non_employment_injury": 23.65,
+        "employer_total": 23.65,
+        "total": 63.05
+      }
+    },
+    {
+      "row": 37,
+      "wage_min_exclusive": 3200.0,
+      "wage_max_inclusive": 3300.0,
+      "category_1": {
+        "employee": 56.85,
+        "employer_invalidity": 16.25,
+        "employer_non_employment_injury": 24.35,
+        "employer_total": 40.6,
+        "total": 97.45
+      },
+      "category_2": {
+        "employee": 40.6,
+        "employer_non_employment_injury": 24.35,
+        "employer_total": 24.35,
+        "total": 64.95
+      }
+    },
+    {
+      "row": 38,
+      "wage_min_exclusive": 3300.0,
+      "wage_max_inclusive": 3400.0,
+      "category_1": {
+        "employee": 58.65,
+        "employer_invalidity": 16.75,
+        "employer_non_employment_injury": 25.15,
+        "employer_total": 41.9,
+        "total": 100.55
+      },
+      "category_2": {
+        "employee": 41.9,
+        "employer_non_employment_injury": 25.15,
+        "employer_total": 25.15,
+        "total": 67.05
+      }
+    },
+    {
+      "row": 39,
+      "wage_min_exclusive": 3400.0,
+      "wage_max_inclusive": 3500.0,
+      "category_1": {
+        "employee": 60.35,
+        "employer_invalidity": 17.25,
+        "employer_non_employment_injury": 25.85,
+        "employer_total": 43.1,
+        "total": 103.45
+      },
+      "category_2": {
+        "employee": 43.1,
+        "employer_non_employment_injury": 25.85,
+        "employer_total": 25.85,
+        "total": 68.95
+      }
+    },
+    {
+      "row": 40,
+      "wage_min_exclusive": 3500.0,
+      "wage_max_inclusive": 3600.0,
+      "category_1": {
+        "employee": 62.15,
+        "employer_invalidity": 17.75,
+        "employer_non_employment_injury": 26.65,
+        "employer_total": 44.4,
+        "total": 106.55
+      },
+      "category_2": {
+        "employee": 44.4,
+        "employer_non_employment_injury": 26.65,
+        "employer_total": 26.65,
+        "total": 71.05
+      }
+    },
+    {
+      "row": 41,
+      "wage_min_exclusive": 3600.0,
+      "wage_max_inclusive": 3700.0,
+      "category_1": {
+        "employee": 63.85,
+        "employer_invalidity": 18.25,
+        "employer_non_employment_injury": 27.35,
+        "employer_total": 45.6,
+        "total": 109.45
+      },
+      "category_2": {
+        "employee": 45.6,
+        "employer_non_employment_injury": 27.35,
+        "employer_total": 27.35,
+        "total": 72.95
+      }
+    },
+    {
+      "row": 42,
+      "wage_min_exclusive": 3700.0,
+      "wage_max_inclusive": 3800.0,
+      "category_1": {
+        "employee": 65.65,
+        "employer_invalidity": 18.75,
+        "employer_non_employment_injury": 28.15,
+        "employer_total": 46.9,
+        "total": 112.55
+      },
+      "category_2": {
+        "employee": 46.9,
+        "employer_non_employment_injury": 28.15,
+        "employer_total": 28.15,
+        "total": 75.05
+      }
+    },
+    {
+      "row": 43,
+      "wage_min_exclusive": 3800.0,
+      "wage_max_inclusive": 3900.0,
+      "category_1": {
+        "employee": 67.35,
+        "employer_invalidity": 19.25,
+        "employer_non_employment_injury": 28.85,
+        "employer_total": 48.1,
+        "total": 115.45
+      },
+      "category_2": {
+        "employee": 48.1,
+        "employer_non_employment_injury": 28.85,
+        "employer_total": 28.85,
+        "total": 76.95
+      }
+    },
+    {
+      "row": 44,
+      "wage_min_exclusive": 3900.0,
+      "wage_max_inclusive": 4000.0,
+      "category_1": {
+        "employee": 69.15,
+        "employer_invalidity": 19.75,
+        "employer_non_employment_injury": 29.65,
+        "employer_total": 49.4,
+        "total": 118.55
+      },
+      "category_2": {
+        "employee": 49.4,
+        "employer_non_employment_injury": 29.65,
+        "employer_total": 29.65,
+        "total": 79.05
+      }
+    },
+    {
+      "row": 45,
+      "wage_min_exclusive": 4000.0,
+      "wage_max_inclusive": 4100.0,
+      "category_1": {
+        "employee": 70.85,
+        "employer_invalidity": 20.25,
+        "employer_non_employment_injury": 30.35,
+        "employer_total": 50.6,
+        "total": 121.45
+      },
+      "category_2": {
+        "employee": 50.6,
+        "employer_non_employment_injury": 30.35,
+        "employer_total": 30.35,
+        "total": 80.95
+      }
+    },
+    {
+      "row": 46,
+      "wage_min_exclusive": 4100.0,
+      "wage_max_inclusive": 4200.0,
+      "category_1": {
+        "employee": 72.65,
+        "employer_invalidity": 20.75,
+        "employer_non_employment_injury": 31.15,
+        "employer_total": 51.9,
+        "total": 124.55
+      },
+      "category_2": {
+        "employee": 51.9,
+        "employer_non_employment_injury": 31.15,
+        "employer_total": 31.15,
+        "total": 83.05
+      }
+    },
+    {
+      "row": 47,
+      "wage_min_exclusive": 4200.0,
+      "wage_max_inclusive": 4300.0,
+      "category_1": {
+        "employee": 74.35,
+        "employer_invalidity": 21.25,
+        "employer_non_employment_injury": 31.85,
+        "employer_total": 53.1,
+        "total": 127.45
+      },
+      "category_2": {
+        "employee": 53.1,
+        "employer_non_employment_injury": 31.85,
+        "employer_total": 31.85,
+        "total": 84.95
+      }
+    },
+    {
+      "row": 48,
+      "wage_min_exclusive": 4300.0,
+      "wage_max_inclusive": 4400.0,
+      "category_1": {
+        "employee": 76.15,
+        "employer_invalidity": 21.75,
+        "employer_non_employment_injury": 32.65,
+        "employer_total": 54.4,
+        "total": 130.55
+      },
+      "category_2": {
+        "employee": 54.4,
+        "employer_non_employment_injury": 32.65,
+        "employer_total": 32.65,
+        "total": 87.05
+      }
+    },
+    {
+      "row": 49,
+      "wage_min_exclusive": 4400.0,
+      "wage_max_inclusive": 4500.0,
+      "category_1": {
+        "employee": 77.85,
+        "employer_invalidity": 22.25,
+        "employer_non_employment_injury": 33.35,
+        "employer_total": 55.6,
+        "total": 133.45
+      },
+      "category_2": {
+        "employee": 55.6,
+        "employer_non_employment_injury": 33.35,
+        "employer_total": 33.35,
+        "total": 88.95
+      }
+    },
+    {
+      "row": 50,
+      "wage_min_exclusive": 4500.0,
+      "wage_max_inclusive": 4600.0,
+      "category_1": {
+        "employee": 79.65,
+        "employer_invalidity": 22.75,
+        "employer_non_employment_injury": 34.15,
+        "employer_total": 56.9,
+        "total": 136.55
+      },
+      "category_2": {
+        "employee": 56.9,
+        "employer_non_employment_injury": 34.15,
+        "employer_total": 34.15,
+        "total": 91.05
+      }
+    },
+    {
+      "row": 51,
+      "wage_min_exclusive": 4600.0,
+      "wage_max_inclusive": 4700.0,
+      "category_1": {
+        "employee": 81.35,
+        "employer_invalidity": 23.25,
+        "employer_non_employment_injury": 34.85,
+        "employer_total": 58.1,
+        "total": 139.45
+      },
+      "category_2": {
+        "employee": 58.1,
+        "employer_non_employment_injury": 34.85,
+        "employer_total": 34.85,
+        "total": 92.95
+      }
+    },
+    {
+      "row": 52,
+      "wage_min_exclusive": 4700.0,
+      "wage_max_inclusive": 4800.0,
+      "category_1": {
+        "employee": 83.15,
+        "employer_invalidity": 23.75,
+        "employer_non_employment_injury": 35.65,
+        "employer_total": 59.4,
+        "total": 142.55
+      },
+      "category_2": {
+        "employee": 59.4,
+        "employer_non_employment_injury": 35.65,
+        "employer_total": 35.65,
+        "total": 95.05
+      }
+    },
+    {
+      "row": 53,
+      "wage_min_exclusive": 4800.0,
+      "wage_max_inclusive": 4900.0,
+      "category_1": {
+        "employee": 84.85,
+        "employer_invalidity": 24.25,
+        "employer_non_employment_injury": 36.35,
+        "employer_total": 60.6,
+        "total": 145.45
+      },
+      "category_2": {
+        "employee": 60.6,
+        "employer_non_employment_injury": 36.35,
+        "employer_total": 36.35,
+        "total": 96.95
+      }
+    },
+    {
+      "row": 54,
+      "wage_min_exclusive": 4900.0,
+      "wage_max_inclusive": 5000.0,
+      "category_1": {
+        "employee": 86.65,
+        "employer_invalidity": 24.75,
+        "employer_non_employment_injury": 37.15,
+        "employer_total": 61.9,
+        "total": 148.55
+      },
+      "category_2": {
+        "employee": 61.9,
+        "employer_non_employment_injury": 37.15,
+        "employer_total": 37.15,
+        "total": 99.05
+      }
+    },
+    {
+      "row": 55,
+      "wage_min_exclusive": 5000.0,
+      "wage_max_inclusive": 5100.0,
+      "category_1": {
+        "employee": 88.35,
+        "employer_invalidity": 25.25,
+        "employer_non_employment_injury": 37.85,
+        "employer_total": 63.1,
+        "total": 151.45
+      },
+      "category_2": {
+        "employee": 63.1,
+        "employer_non_employment_injury": 37.85,
+        "employer_total": 37.85,
+        "total": 100.95
+      }
+    },
+    {
+      "row": 56,
+      "wage_min_exclusive": 5100.0,
+      "wage_max_inclusive": 5200.0,
+      "category_1": {
+        "employee": 90.15,
+        "employer_invalidity": 25.75,
+        "employer_non_employment_injury": 38.65,
+        "employer_total": 64.4,
+        "total": 154.55
+      },
+      "category_2": {
+        "employee": 64.4,
+        "employer_non_employment_injury": 38.65,
+        "employer_total": 38.65,
+        "total": 103.05
+      }
+    },
+    {
+      "row": 57,
+      "wage_min_exclusive": 5200.0,
+      "wage_max_inclusive": 5300.0,
+      "category_1": {
+        "employee": 91.85,
+        "employer_invalidity": 26.25,
+        "employer_non_employment_injury": 39.35,
+        "employer_total": 65.6,
+        "total": 157.45
+      },
+      "category_2": {
+        "employee": 65.6,
+        "employer_non_employment_injury": 39.35,
+        "employer_total": 39.35,
+        "total": 104.95
+      }
+    },
+    {
+      "row": 58,
+      "wage_min_exclusive": 5300.0,
+      "wage_max_inclusive": 5400.0,
+      "category_1": {
+        "employee": 93.65,
+        "employer_invalidity": 26.75,
+        "employer_non_employment_injury": 40.15,
+        "employer_total": 66.9,
+        "total": 160.55
+      },
+      "category_2": {
+        "employee": 66.9,
+        "employer_non_employment_injury": 40.15,
+        "employer_total": 40.15,
+        "total": 107.05
+      }
+    },
+    {
+      "row": 59,
+      "wage_min_exclusive": 5400.0,
+      "wage_max_inclusive": 5500.0,
+      "category_1": {
+        "employee": 95.35,
+        "employer_invalidity": 27.25,
+        "employer_non_employment_injury": 40.85,
+        "employer_total": 68.1,
+        "total": 163.45
+      },
+      "category_2": {
+        "employee": 68.1,
+        "employer_non_employment_injury": 40.85,
+        "employer_total": 40.85,
+        "total": 108.95
+      }
+    },
+    {
+      "row": 60,
+      "wage_min_exclusive": 5500.0,
+      "wage_max_inclusive": 5600.0,
+      "category_1": {
+        "employee": 97.15,
+        "employer_invalidity": 27.75,
+        "employer_non_employment_injury": 41.65,
+        "employer_total": 69.4,
+        "total": 166.55
+      },
+      "category_2": {
+        "employee": 69.4,
+        "employer_non_employment_injury": 41.65,
+        "employer_total": 41.65,
+        "total": 111.05
+      }
+    },
+    {
+      "row": 61,
+      "wage_min_exclusive": 5600.0,
+      "wage_max_inclusive": 5700.0,
+      "category_1": {
+        "employee": 98.85,
+        "employer_invalidity": 28.25,
+        "employer_non_employment_injury": 42.35,
+        "employer_total": 70.6,
+        "total": 169.45
+      },
+      "category_2": {
+        "employee": 70.6,
+        "employer_non_employment_injury": 42.35,
+        "employer_total": 42.35,
+        "total": 112.95
+      }
+    },
+    {
+      "row": 62,
+      "wage_min_exclusive": 5700.0,
+      "wage_max_inclusive": 5800.0,
+      "category_1": {
+        "employee": 100.65,
+        "employer_invalidity": 28.75,
+        "employer_non_employment_injury": 43.15,
+        "employer_total": 71.9,
+        "total": 172.55
+      },
+      "category_2": {
+        "employee": 71.9,
+        "employer_non_employment_injury": 43.15,
+        "employer_total": 43.15,
+        "total": 115.05
+      }
+    },
+    {
+      "row": 63,
+      "wage_min_exclusive": 5800.0,
+      "wage_max_inclusive": 5900.0,
+      "category_1": {
+        "employee": 102.35,
+        "employer_invalidity": 29.25,
+        "employer_non_employment_injury": 43.85,
+        "employer_total": 73.1,
+        "total": 175.45
+      },
+      "category_2": {
+        "employee": 73.1,
+        "employer_non_employment_injury": 43.85,
+        "employer_total": 43.85,
+        "total": 116.95
+      }
+    },
+    {
+      "row": 64,
+      "wage_min_exclusive": 5900.0,
+      "wage_max_inclusive": 6000.0,
+      "category_1": {
+        "employee": 104.15,
+        "employer_invalidity": 29.75,
+        "employer_non_employment_injury": 44.65,
+        "employer_total": 74.4,
+        "total": 178.55
+      },
+      "category_2": {
+        "employee": 74.4,
+        "employer_non_employment_injury": 44.65,
+        "employer_total": 44.65,
+        "total": 119.05
+      }
+    },
+    {
+      "row": 65,
+      "wage_min_exclusive": 6000.0,
+      "wage_max_inclusive": null,
+      "category_1": {
+        "employee": 104.15,
+        "employer_invalidity": 29.75,
+        "employer_non_employment_injury": 44.65,
+        "employer_total": 74.4,
+        "total": 178.55
+      },
+      "category_2": {
+        "employee": 74.4,
+        "employer_non_employment_injury": 44.65,
+        "employer_total": 44.65,
+        "total": 119.05
+      }
+    }
+  ]
+}

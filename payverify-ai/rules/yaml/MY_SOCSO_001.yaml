@@ -1,0 +1,38 @@
+RuleId: MY_SOCSO_001
+Country: Malaysia
+Component: SOCSO
+BusinessArea: Statutory Social Security Contribution
+Category: Statutory
+Priority: Critical
+SourceDocument: SOCSO employee and employer NewContributionRateIncludingSKBBK.pdf
+Section: Contribution rate table (Category 1 & Category 2), rows 1-65
+EffectiveDate: Requires SME Validation - not stated in source PDF
+Version: '1.0'
+ValidationType: Lookup table (wage band) + Category eligibility
+Inputs:
+- BasicSalary
+- FixedAllowance
+- Age
+- SocsoCategory
+Expected:
+- EmployerContribution
+- EmployeeContribution
+Dependencies: []
+ExecutionOrder: 20
+ErrorCode: SOCSO001
+Severity: Critical
+Owner: Payroll Compliance SME (Malaysia)
+SME: Requires SME Validation - Category 1 vs Category 2 eligibility test not stated
+  in source PDF
+AuditReference: rule-engine/rates/socso_rates.json (parsed programmatically from PDF
+  tables)
+TestScenario:
+  Positive: Wage RM30, Category 1 -> employee RM0.40, employer RM0.30, total RM0.70
+  Negative: Wage RM10,000 (above RM6,000 ceiling) -> capped at RM5,900-6,000 band
+    amount
+Risk: Medium-High - category eligibility placeholder needs SME sign-off before production
+  use
+Confidence: High for rates (extracted from source table); Low for category-assignment
+  default (placeholder)
+Status: implemented_pending_category_sme_validation
+Notes: Wage ceiling RM6,000 confirmed from source (row 65 repeats capped amount).
