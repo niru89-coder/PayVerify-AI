@@ -32,6 +32,8 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 from .database import get_db, init_db
 from .mapping_helpers import build_mapping_preview, parse_employee_master_csv
+from .middleware.logging import RequestLoggingMiddleware
+from .routes import monitoring
 
 from base import EmployeeContext, RuleStatus, WageContext  # noqa: E402
 from epf import calculate_epf  # noqa: E402
@@ -59,6 +61,7 @@ _cors_origins = [
     if origin.strip()
 ]
 
+app.add_middleware(RequestLoggingMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_cors_origins,
@@ -67,15 +70,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/health")
-def health():
-    """Lightweight liveness check - no dependency calls. Used by Docker/Render health checks.
-
-    A readiness endpoint that also verifies DB/Redis/Gemini connectivity (/status) and a
-    Prometheus-style /metrics endpoint are added in the Phase 3.6 monitoring work.
-    """
-    return {"status": "ok"}
+# Include monitoring routes (Phase 3.6: /health, /status, /metrics)
+app.include_router(monitoring.router)
 
 
 # --------------------------------------------------------------------------
