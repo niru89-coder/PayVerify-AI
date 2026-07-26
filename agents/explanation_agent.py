@@ -108,11 +108,40 @@ class GeminiExplanationProvider(ExplanationProvider):
         return response.text
 
 
+class GatewayExplanationProvider(ExplanationProvider):
+    """Wraps a provider (Gemini or Stub) with the AI Gateway for minimization,
+    caching, logging, and token tracking (Phase 3.5)."""
+
+    def __init__(self, wrapped_provider: ExplanationProvider) -> None:
+        self._provider = wrapped_provider
+        # Import here to avoid circular dependency at module load time.
+        from ai_gateway import get_gateway
+
+        self._gateway = get_gateway()
+
+    def explain(self, request: VarianceExplanationRequest) -> str:
+        """Route through the gateway."""
+        return self._gateway.explain(request, self._provider)
+
+    def metrics(self) -> dict:
+        """Expose gateway telemetry (for Phase 3.6's /metrics endpoint)."""
+        return self._gateway.metrics()
+
+
 def get_default_provider() -> ExplanationProvider:
-    """Factory: uses Gemini if GEMINI_API_KEY is configured, else the stub."""
+    """Factory: uses Gemini (with gateway) if GEMINI_API_KEY is configured, else the stub.
+    
+    Returns a GatewayExplanationProvider wrapping either GeminiExplanationProvider or
+    StubExplanationProvider, ensuring all requests go through the minimization,
+    caching, and logging layer.
+    """
+    inner_provider: ExplanationProvider
     if os.environ.get("GEMINI_API_KEY"):
         try:
-            return GeminiExplanationProvider()
+            inner_provider = GeminiExplanationProvider()
         except Exception:
-            return StubExplanationProvider()
-    return StubExplanationProvider()
+            inner_provider = StubExplanationProvider()
+    else:
+        inner_provider = StubExplanationProvider()
+
+    return GatewayExplanationProvider(inner_provider)
