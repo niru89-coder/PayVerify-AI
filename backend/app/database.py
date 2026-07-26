@@ -47,6 +47,17 @@ def get_db() -> Generator[Session, None, None]:
 
 
 def init_db() -> None:
+    """Create tables for local SQLite development/tests only.
+
+    Production/staging deployments use PostgreSQL and must be schema-managed
+    via Alembic migrations (see migrations/ and docs/production/operations-guide.md
+    - `alembic upgrade head`), not create_all(). This function no-ops for
+    non-SQLite URLs so a running app never silently drifts from the migration
+    history.
+    """
+    if not DATABASE_URL.startswith("sqlite"):
+        return
+
     # Import models so they are registered on Base.metadata before create_all.
     from . import models  # noqa: F401
 

@@ -32,6 +32,19 @@ services:
         sync: false # optional - falls back to the deterministic stub explainer if blank
       - key: CORS_ALLOWED_ORIGINS
         value: https://payverify-frontend.onrender.com
+      # Authentication (Phase 3.7) - enabled for the live deployment. Generate
+      # ADMIN_PASSWORD_HASH with `python scripts/hash_password.py` and set both
+      # secrets in the Render dashboard (sync:false - never committed to git).
+      - key: AUTH_ENABLED
+        value: "true"
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: DEBUG
+        value: "false"
 
   - type: web
     name: payverify-frontend

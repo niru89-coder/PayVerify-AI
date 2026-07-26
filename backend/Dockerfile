@@ -25,6 +25,9 @@ COPY validation-engine/ validation-engine/
 COPY services/ services/
 COPY agents/ agents/
 COPY rules/ rules/
+COPY migrations/ migrations/
+COPY alembic.ini .
+COPY backend/entrypoint.sh /entrypoint.sh
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -36,4 +39,4 @@ EXPOSE 8000
 HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=5 \
     CMD python -c "import urllib.request,sys; urllib.request.urlopen('http://localhost:8000/health', timeout=3)" || exit 1
 
-CMD ["python", "-m", "uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "/entrypoint.sh"]

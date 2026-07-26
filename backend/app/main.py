@@ -19,20 +19,29 @@ from . import bootstrap  # noqa: F401,E402
 import csv
 import io
 import json
+import logging
 import os
 import pathlib
+import uuid
 from collections import Counter
 from contextlib import asynccontextmanager
 
-from fastapi import Depends, FastAPI, HTTPException, Query, UploadFile
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, UploadFile
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.security import OAuth2PasswordRequestForm
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
 from sqlalchemy import delete
 from sqlalchemy.orm import Session
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from . import models, schemas
+from . import auth, models, schemas
 from .database import get_db, init_db
 from .mapping_helpers import build_mapping_preview, parse_employee_master_csv
-from .middleware.logging import RequestLoggingMiddleware
+from .middleware.logging import RequestLoggingMiddleware, log_error
 from .routes import monitoring
 
 from base import EmployeeContext, RuleStatus, WageContext  # noqa: E402
@@ -51,6 +60,14 @@ async def _lifespan(app: FastAPI):
 
 
 app = FastAPI(title="PayVerify AI", version="0.1.0", lifespan=_lifespan)
+
+# Rate limiting (Phase 3.7) - protects /auth/token from brute force and caps
+# upload/validate throughput per client IP. Disabled entirely in tests would
+# be noisy to configure per-test, so limits are generous enough not to trip
+# during a normal test run while still providing real protection in prod.
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Local dev frontend (Next.js) - restrict to known origins only. Override via
 # CORS_ALLOWED_ORIGINS (comma-separated) in deployed environments, e.g. Docker/Render.
@@ -75,11 +92,84 @@ app.include_router(monitoring.router)
 
 
 # --------------------------------------------------------------------------
+# Centralized error handling (Phase 3.7) - never leak stack traces; every
+# error response carries a request_id correlating it to the structured logs.
+# --------------------------------------------------------------------------
+
+_DEBUG = os.environ.get("DEBUG", "false").strip().lower() in ("1", "true", "yes")
+
+
+def _request_id(request: Request) -> str:
+    return getattr(request.state, "request_id", str(uuid.uuid4()))
+
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    # Keep top-level "detail" for compatibility with the frontend's existing
+    # `body.detail` error parsing and FastAPI's default OpenAPI error shape;
+    # add "request_id" so a user-visible error can be correlated to server logs.
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "detail": exc.detail,
+            "request_id": _request_id(request),
+        },
+        headers=getattr(exc, "headers", None),
+    )
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=422,
+        content={
+            "detail": exc.errors() if _DEBUG else "Request validation failed",
+            "request_id": _request_id(request),
+        },
+    )
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    request_id = _request_id(request)
+    log_error("Unhandled exception", request_id=request_id, path=request.url.path, error=str(exc))
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": str(exc) if _DEBUG else "Internal server error",
+            "request_id": request_id,
+        },
+    )
+
+
+# --------------------------------------------------------------------------
+# Authentication (Phase 3.7) - feature-flagged via AUTH_ENABLED; see
+# backend/app/auth.py and docs/production/administrator-guide.md.
+# --------------------------------------------------------------------------
+
+@app.post("/auth/token")
+@limiter.limit("10/minute")
+def issue_token(request: Request, form_data: OAuth2PasswordRequestForm = Depends()):
+    if not auth.authenticate_admin(form_data.username, form_data.password):
+        raise HTTPException(
+            status_code=401,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    token = auth.create_access_token(subject=form_data.username)
+    return {"access_token": token, "token_type": "bearer"}
+
+
+# --------------------------------------------------------------------------
 # Projects
 # --------------------------------------------------------------------------
 
 @app.post("/api/projects", response_model=schemas.ProjectOut)
-def create_project(payload: schemas.ProjectCreate, db: Session = Depends(get_db)):
+def create_project(
+    payload: schemas.ProjectCreate,
+    db: Session = Depends(get_db),
+    _user: str = Depends(auth.require_auth),
+):
     project = models.Project(
         name=payload.name,
         country=payload.country,
@@ -110,7 +200,14 @@ def get_project(project_id: int, db: Session = Depends(get_db)):
 # --------------------------------------------------------------------------
 
 @app.post("/api/projects/{project_id}/employees/upload")
-def upload_employee_master(project_id: int, file: UploadFile, db: Session = Depends(get_db)):
+@limiter.limit("20/minute")
+def upload_employee_master(
+    request: Request,
+    project_id: int,
+    file: UploadFile,
+    db: Session = Depends(get_db),
+    _user: str = Depends(auth.require_auth),
+):
     project = db.get(models.Project, project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
@@ -151,12 +248,15 @@ def preview_register_mapping(project_id: int, file: UploadFile, db: Session = De
 
 
 @app.post("/api/projects/{project_id}/registers/upload", response_model=schemas.RegisterUploadResult)
+@limiter.limit("20/minute")
 def upload_register(
+    request: Request,
     project_id: int,
     register_type: str,
     file: UploadFile,
     column_map: str = "",
     db: Session = Depends(get_db),
+    _user: str = Depends(auth.require_auth),
 ):
     """`register_type` is "client" or "platform". `column_map` is a JSON string
     ({"Source Column": "CANONICAL_CODE", ...}) confirmed by the user after
@@ -253,7 +353,11 @@ def _employee_context(emp: models.Employee) -> EmployeeContext:
 
 
 @app.post("/api/projects/{project_id}/validate", response_model=schemas.ValidationRunResult)
-def run_validation(project_id: int, db: Session = Depends(get_db)):
+def run_validation(
+    project_id: int,
+    db: Session = Depends(get_db),
+    _user: str = Depends(auth.require_auth),
+):
     project = db.get(models.Project, project_id)
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
@@ -395,7 +499,12 @@ def explain_variance(variance_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/api/variances/{variance_id}/feedback", response_model=schemas.FeedbackOut)
-def add_feedback(variance_id: int, payload: schemas.FeedbackCreate, db: Session = Depends(get_db)):
+def add_feedback(
+    variance_id: int,
+    payload: schemas.FeedbackCreate,
+    db: Session = Depends(get_db),
+    _user: str = Depends(auth.require_auth),
+):
     variance = db.get(models.Variance, variance_id)
     if not variance:
         raise HTTPException(status_code=404, detail="Variance not found")
